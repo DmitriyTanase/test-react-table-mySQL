@@ -1,30 +1,30 @@
 import {useState, useEffect} from 'react';
 
-export const usePagination = (filteredUsers = [], defaultPage = 1, amountPerPage = 5) => {
+export const usePagination = (sortedItems = [], defaultPage = 1, amountPerPage = 2) => {
     const [currentPage, setCurrentPage] = useState(defaultPage);
-    const [currentUsers, setCurrentUsers] = useState([]);
+    const [currentItems, setCurrentItems] = useState([]);
     const [amountOfPages, setAmountOfPages] = useState(0);
 
     useEffect(() => {
         updateUsers();
         updateAmountOfPages();
-    }, [currentPage, filteredUsers]);
+    }, [currentPage, sortedItems]);
 
     const updateUsers = () => {
         const indexOfLastPost = currentPage * amountPerPage;
         const indexOfFirstPost = indexOfLastPost - amountPerPage;
-        const updatedUsers = filteredUsers.slice(indexOfFirstPost, indexOfLastPost);
-        setCurrentUsers(updatedUsers);
+        const updatedUsers = sortedItems.slice(indexOfFirstPost, indexOfLastPost);
+        setCurrentItems(updatedUsers);
     };
 
     const updateAmountOfPages = () => {
-        const updatedAmount = Math.ceil(filteredUsers.length / amountPerPage);
+        const updatedAmount = Math.ceil(sortedItems.length / amountPerPage);
         setAmountOfPages(updatedAmount);
     };
 
     return {
         setCurrentPage,
         amountOfPages,
-        currentUsers,
+        currentItems,
     };
 };

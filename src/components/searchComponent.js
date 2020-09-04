@@ -12,25 +12,13 @@ const Search = ({setSearch}) => {
                         name="search"
                         type="text"
                         className="form-control"
-                        placeholder="Search"
+                        placeholder="Поиск по имени"
                         onChange={e => setSearch(e.target.value)}
                         id="name-user"
                     />
                 </div>
             </div>
         </div>
-
-        // <div>
-        //     <span className="glyphicon glyphicon-search"/>
-        //     <input
-        //         name="search"
-        //         type="text"
-        //         className="form-control"
-        //         placeholder="search"
-        //         onChange={e => setSearch(e.target.value)}
-        //     />
-        // </div>
-
     )
 };
 

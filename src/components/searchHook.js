@@ -1,22 +1,23 @@
 import {useState, useEffect} from 'react';
 
-export const useSearch = (users) => {
+export const useSearch = (items) => {
     const [search, setSearch] = useState("");
-    const [filteredUsers, setFilteredUsers] = useState(users);
+    const [filteredItems, setFilteredItems] = useState(items);
 
     useEffect(() => {
         updateUsersByFilter();
-    }, [search, users]);
+    }, [search, items]);
 
     const updateUsersByFilter = () => {
-        setFilteredUsers(
-            users.filter(item =>
-                item.name.toLowerCase().includes(search.toLowerCase())
+        setFilteredItems(
+            items.filter(item =>
+                item.Name.toLowerCase().includes(search.toLowerCase())
             ));
+        console.log(filteredItems)
     };
 
     return {
-        filteredUsers,
+        filteredItems,
         setSearch
     };
 };

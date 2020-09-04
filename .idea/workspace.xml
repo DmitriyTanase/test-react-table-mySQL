@@ -1,9 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c2bc013f-c68a-44a4-a8cf-459acb944add" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/input.icon.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input.icon.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/paginationComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/paginationComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/paginationHook.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/paginationHook.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/searchComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/searchComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/searchHook.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/searchHook.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sortComponents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sortComponents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sortHook.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sortHook.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sort_TEST.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sort_TEST.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1gxVKiJKmcy9fP8fSDcKBiR2WKv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../test-react-app/src/store/reducers/add.reducer.js" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunManager" selected="npm.npm start">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c2bc013f-c68a-44a4-a8cf-459acb944add" name="Default Changelist" comment="" />
+      <created>1599056168881</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599056168881</updated>
+      <workItem from="1599056171153" duration="3335000" />
+      <workItem from="1599134686608" duration="15693000" />
+      <workItem from="1599207227343" duration="19640000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="275" y="22" key="#Notifications" timestamp="1599221031834">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="22" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1599221031834" />
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1599207275348">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1599207275348" />
   </component>
 </project>
