@@ -10,9 +10,14 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import "./App.css";
 
 function App() {
-    const [isLoaded, setIsLoaded] = useState(false);
+
     const [items, setItems] = useState([]);
-    const {setMask, setCurrentColumn, setCurrentCondition, sortedItems} = useSort(items);
+    const [isLoaded, setIsLoaded] = useState(false);
+    // Если items передавать сразу в usePagination,
+    // То таблица рендерится на первом рендере,
+    // Но если использовать useSort, то таблица при первом рендере пустая
+    // и наполняется массивом только при выборе условий.
+    const {setMask, setCurrentColumn, setCurrentCondition, sortedItems} = useSort(items, isLoaded);
     const {setCurrentPage, currentItems, amountOfPages} = usePagination(sortedItems);
 
     useEffect(() => {
@@ -22,9 +27,10 @@ function App() {
                 .then(json => {
                     setItems(json);
                     setIsLoaded(true);
-                    console.log(json, "isLoaded:" + isLoaded);
+                    console.log(json);
                 })
         };
+        console.log("isLoaded:" + isLoaded);
         getData();
 
     }, []);
@@ -33,48 +39,48 @@ function App() {
         <div>
             <div className="jumbotron" id="notification">
                 <h1>Table with search, sort and pagination</h1>
+                <p>Choose column of sorting and after pick the method for sorting</p>
             </div>
-            <div className="container">
-                <div className="row justify-content-start align-items-center" id="placingSort">
-                    <div className="col-sm-auto">
-                        <Sort
-                            setMask={setMask}
-                            setCurrentColumn={setCurrentColumn}
-                            setCurrentCondition={setCurrentCondition}
-                        />
-                    </div>
-                    <div className="col-sm-6"/>
-                </div>
                 { isLoaded ? (
-                    <div className="table-responsive-sm" id="placingTable">
-                        <table className="table table-striped table-hover">
-                            <thead className="thead-dark">
-                            <tr>
-                                <th>Date</th>
-                                <th>Name</th>
-                                <th>Quantity</th>
-                                <th>Distance</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {currentItems.map((value, index) => (
-                                <tr key={index}>
-                                    <th scope="row">
-                                        {value.Date}
-                                    </th>
-                                    <td>{value.Name}</td>
-                                    <td>{value.Quantity}</td>
-                                    <td>{value.Distance}</td>
+                    <div className="container">
+                        <div className="row justify-content-start align-items-center" id="placingSort">
+                            <div className="col-sm-auto">
+                                <Sort
+                                    setMask={setMask}
+                                    setCurrentColumn={setCurrentColumn}
+                                    setCurrentCondition={setCurrentCondition}
+                                />
+                            </div>
+                        </div>
+                        <div className="table-responsive-sm" id="placingTable">
+                            <table className="table table-striped table-hover">
+                                <thead className="thead-dark">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Name</th>
+                                    <th>Quantity</th>
+                                    <th>Distance</th>
                                 </tr>
-                            ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                {currentItems.map((value, index) => (
+                                    <tr key={index}>
+                                        <th scope="row">
+                                            {value.Date}
+                                        </th>
+                                        <td>{value.Name}</td>
+                                        <td>{value.Quantity}</td>
+                                        <td>{value.Distance}</td>
+                                    </tr>
+                                ))}
+                                </tbody>
+                            </table>
+                        </div>
+                        <Pagination amountOfPages={amountOfPages} setCurrentPage={setCurrentPage}/>
                     </div>
                 ) : (
                     <h2>Загрузка...</h2>
                 )}
-                <Pagination amountOfPages={amountOfPages} setCurrentPage={setCurrentPage}/>
-            </div>
             {/*<Table/>*/}
         </div>
     );
