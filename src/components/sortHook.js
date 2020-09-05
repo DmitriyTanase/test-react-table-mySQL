@@ -1,20 +1,20 @@
 import {useEffect, useState} from 'react';
 
-export const useSort = (items, isLoaded) => {
+export const useSort = (items) => {
 
-    const [sortedItems, setSortedItems] = useState(items);
+    const [sortedItems, setSortedItems] = useState([]);
     const [mask, setMask] = useState("");
     const [currentColumn, setCurrentColumn] = useState("");
     const [currentCondition, setCurrentCondition] = useState("");
-
+    console.log(items);
     useEffect(() => {
         SortQuantity(currentCondition, currentColumn);
         SortDistance(currentCondition, currentColumn);
         SortName(currentCondition, currentColumn);
 
-    }, [currentCondition, currentColumn, mask]);
+    }, [currentCondition, currentColumn, mask, items]);
 
-    function SortQuantity (currentCondition, currentColumn) {
+    function SortQuantity(currentCondition, currentColumn) {
         if (currentColumn === "Quantity" && currentCondition === "less") {
             console.log(mask, currentCondition, currentColumn);
             setSortedItems(
@@ -33,7 +33,7 @@ export const useSort = (items, isLoaded) => {
         } else return items
     }
 
-    function SortDistance (currentCondition, currentColumn) {
+    function SortDistance(currentCondition, currentColumn) {
         if (currentColumn === "Distance" && currentCondition === "less") {
             console.log(mask, currentCondition, currentColumn);
             setSortedItems(
@@ -52,7 +52,7 @@ export const useSort = (items, isLoaded) => {
         } else return items
     }
 
-    function SortName (currentCondition, currentColumn) {
+    function SortName(currentCondition, currentColumn) {
         if (currentColumn === "Name" && currentCondition === "contains") {
             console.log(mask, currentCondition, currentColumn);
             setSortedItems(
@@ -67,6 +67,7 @@ export const useSort = (items, isLoaded) => {
         setMask,
         setCurrentColumn,
         setCurrentCondition,
+        setSortedItems,
         sortedItems
     }
 };

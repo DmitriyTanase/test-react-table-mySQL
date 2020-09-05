@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState, useMemo} from 'react';
 
 function Table() {
     const myArr = [
@@ -28,54 +28,78 @@ function Table() {
         },
     ];
 
-    const [sortedArr, setSortedArr] = useState(myArr);
     const [mask, setMask] = useState("");
     const [currentColumn, setCurrentColumn] = useState();
     const [currentCondition, setCurrentCondition] = useState();
 
-    useEffect(() => {
-        SortQuantity(currentCondition, currentColumn);
-        SortDistance(currentCondition, currentColumn)
 
-    }, [currentCondition, currentColumn, mask]);
+    const filteredItems = useMemo(()=>{
 
-    function SortQuantity (currentCondition, currentColumn) {
         if (currentColumn === "Quantity" && currentCondition === "less") {
-            console.log(mask);
-            setSortedArr(
-                myArr.filter(item => item.Quantity < mask)
-            )
-        } else if (currentColumn === "Quantity" && currentCondition === "greater") {
-            console.log(mask);
-            setSortedArr(
-                myArr.filter(item => item.Quantity > mask)
-            )
-        } else if (currentColumn === "Quantity" && currentCondition === "equal") {
-            console.log(mask);
-            setSortedArr(
-                myArr.filter(item => item.Quantity.toString() === mask)
-            )
-        }
-    }
+            return myArr.filter(item => item.Quantity < mask)
 
-    function SortDistance (currentCondition, currentColumn) {
-        if (currentColumn === "Distance" && currentCondition === "less") {
-            console.log(mask);
-            setSortedArr(
-                myArr.filter(item => item.Distance < mask)
-            )
+        } else if (currentColumn === "Quantity" && currentCondition === "greater") {
+            return myArr.filter(item => item.Quantity > mask)
+
+        } else if (currentColumn === "Quantity" && currentCondition === "equal") {
+            return myArr.filter(item => item.Quantity.toString() === mask)
+
+        }  else if (currentColumn === "Distance" && currentCondition === "less") {
+            return myArr.filter(item => item.Distance < mask)
+
         } else if (currentColumn === "Distance" && currentCondition === "greater") {
-            console.log(mask);
-            setSortedArr(
-                myArr.filter(item => item.Distance > mask)
-            )
+            return myArr.filter(item => item.Distance > mask)
+
         } else if (currentColumn === "Distance" && currentCondition === "equal") {
-            console.log(mask);
-            setSortedArr(
-                myArr.filter(item => item.Distance.toString() === mask)
-            )
-        }
-    }
+            return myArr.filter(item => item.Distance.toString() === mask)
+
+        } else return myArr
+
+    },[myArr, currentColumn, currentCondition, mask]);
+
+    // useEffect(() => {
+    //     SortQuantity(currentCondition, currentColumn);
+    //     SortDistance(currentCondition, currentColumn)
+    //
+    // }, [currentCondition, currentColumn, mask]);
+    //
+    // function SortQuantity (currentCondition, currentColumn) {
+    //     if (currentColumn === "Quantity" && currentCondition === "less") {
+    //         console.log(mask);
+    //         setSortedArr(
+    //             myArr.filter(item => item.Quantity < mask)
+    //         )
+    //     } else if (currentColumn === "Quantity" && currentCondition === "greater") {
+    //         console.log(mask);
+    //         setSortedArr(
+    //             myArr.filter(item => item.Quantity > mask)
+    //         )
+    //     } else if (currentColumn === "Quantity" && currentCondition === "equal") {
+    //         console.log(mask);
+    //         setSortedArr(
+    //             myArr.filter(item => item.Quantity.toString() === mask)
+    //         )
+    //     }
+    // }
+    //
+    // function SortDistance (currentCondition, currentColumn) {
+    //     if (currentColumn === "Distance" && currentCondition === "less") {
+    //         console.log(mask);
+    //         setSortedArr(
+    //             myArr.filter(item => item.Distance < mask)
+    //         )
+    //     } else if (currentColumn === "Distance" && currentCondition === "greater") {
+    //         console.log(mask);
+    //         setSortedArr(
+    //             myArr.filter(item => item.Distance > mask)
+    //         )
+    //     } else if (currentColumn === "Distance" && currentCondition === "equal") {
+    //         console.log(mask);
+    //         setSortedArr(
+    //             myArr.filter(item => item.Distance.toString() === mask)
+    //         )
+    //     }
+    // }
 
 
     // useEffect(() => {
@@ -190,7 +214,7 @@ function Table() {
                 </tr>
                 </thead>
                 <tbody>
-                {sortedArr.map((value, index) => (
+                {filteredItems.map((value, index) => (
                     <tr key={index}>
                         <th scope="row">
                             {index + 1}

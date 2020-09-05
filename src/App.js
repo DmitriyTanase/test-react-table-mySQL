@@ -13,25 +13,25 @@ function App() {
 
     const [items, setItems] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
-    // Если items передавать сразу в usePagination,
-    // То таблица рендерится на первом рендере,
-    // Но если использовать useSort, то таблица при первом рендере пустая
-    // и наполняется массивом только при выборе условий.
-    const {setMask, setCurrentColumn, setCurrentCondition, sortedItems} = useSort(items, isLoaded);
+    const {setMask, setCurrentColumn, setCurrentCondition, setSortedItems, sortedItems} = useSort(items);
     const {setCurrentPage, currentItems, amountOfPages} = usePagination(sortedItems);
+    console.log("isLoaded:" + isLoaded);
 
     useEffect(() => {
-        const getData = () => {
-            fetch('http://localhost:4000/items')
-                .then(response => response.json())
-                .then(json => {
-                    setItems(json);
-                    setIsLoaded(true);
-                    console.log(json);
-                })
+        async function FetchData() {
+            try {
+                const response = await fetch('http://localhost:4000/items');
+                const json = await response.json();
+                setItems(json);
+                setIsLoaded(true);
+                setSortedItems(json);
+                console.log(json);
+            } catch (e) {
+                console.log(e)
+            }
         };
+        FetchData();
         console.log("isLoaded:" + isLoaded);
-        getData();
 
     }, []);
 
